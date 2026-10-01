@@ -1,8 +1,8 @@
+// implementation of the Adler32 hashing algorithm invented by Mark Adler in 1995.
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
-
-// implementation of the Adler32 hashing algorithm invented by Mark Adler in 1995.
+#include <assert.h>
 
 uint32_t udb_hash(const char* buf)
 {
@@ -17,12 +17,10 @@ uint32_t udb_hash(const char* buf)
         s1 = (s1 + p[n]) % 65521;
         s2 = (s2 + s1)   % 65521;
     }
-
     return (s2 << 16) | s1;
 }
 
 int main() {
-    uint32_t hash1 = udb_hash("Test123"), hash2 = udb_hash("Test123");
-    printf("%u %u %d", hash1, hash2, hash1 == hash2);
+    assert(udb_hash("Test123") == 166330935);
     return 0;
 }
