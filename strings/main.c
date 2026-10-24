@@ -40,11 +40,11 @@ int main() {
 }
 
 string str(const char* buf) {
-    return (string) {
-        .data = (char*)buf,
-        .size = strlen(buf)
-    };
-}
+    string temp = {0};
+    temp.data = (char*)buf;
+    temp.size = (size_t)strlen(buf);
+    return temp;
+};
 
 void str_trim_left(string* s) {
     while(s->size > 0 && isspace(s->data[0])) {
