@@ -42,7 +42,7 @@ int main() {
 string str(const char* buf) {
     string temp = {0};
     temp.data = (char*)buf;
-    temp.size = (size_t)strlen(buf);
+    temp.size = (i32)strlen(buf);
     return temp;
 };
 
